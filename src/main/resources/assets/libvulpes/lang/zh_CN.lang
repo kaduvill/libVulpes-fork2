@@ -49,8 +49,10 @@ msg.libvulpes.machine.power=能量：
 
 msg.libvulpes.holoProjector.selected=已选择：%s
 msg.libvulpes.holoProjector.alreadySelected=已选择过：%s
-msg.libvulpes.holoProjector.tooltip.openGui=潜行右击：打开机器选择界面
-msg.libvulpes.holoProjector.tooltip.crossSection=潜行滚动滚轮：移动截面
+msg.libvulpes.holoProjector.tooltip.description=投影多方块的全息预览。
+msg.libvulpes.holoProjector.tooltip.openGui=潜行右击：打开菜单
+msg.libvulpes.holoProjector.tooltip.crossSection=潜行滚动滚轮：移动截面。
+msg.libvulpes.holoProjector.tooltip.selected=已选择：
 msg.libvulpes.holoProjector.or=或
 msg.libvulpes.holoProjector.search=搜索：
 
