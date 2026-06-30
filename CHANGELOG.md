@@ -1,3 +1,7 @@
+0.5.6
+  - Updated chinese (thanks ZY)
+  - 
+
 0.5.5
   - Holo-Projector: 
     - Clear ghostblocks when opening GUI

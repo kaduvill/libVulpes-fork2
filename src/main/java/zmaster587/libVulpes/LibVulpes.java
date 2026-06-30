@@ -1,6 +1,5 @@
 package zmaster587.libVulpes;
 
-
 import com.google.common.collect.Lists;
 import ic2.api.item.IC2Items;
 import net.minecraft.block.Block;
@@ -77,7 +76,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-@Mod(modid="libvulpes", name="Vulpes library", version="0.5.5", useMetadata=true, dependencies="after:ic2;after:cofhcore;after:buildcraft|core;after:immersiveengineering")
+@Mod(modid="libvulpes", name="Vulpes library", version="0.5.6", useMetadata=true, dependencies="after:ic2;after:cofhcore;after:buildcraft|core;after:immersiveengineering")
 
 public class LibVulpes {
 	public static org.apache.logging.log4j.Logger logger = LogManager.getLogger("libVulpes");
@@ -143,13 +142,10 @@ public class LibVulpes {
         if(Loader.isModLoaded("gregtech"))
         	LibVulpesBlocks.blockGTPlug = new BlockMultiMachineBattery(Material.IRON, TilePlugInputGregTech.class, GuiHandler.guiId.MODULAR.ordinal()).setUnlocalizedName("gregPowerInput").setCreativeTab(tabMultiblock).setHardness(3f);
         
-        
         //Initialize Items
         LibVulpesItems.itemLinker = new ItemLinker().setUnlocalizedName("Linker").setCreativeTab(tabMultiblock).setRegistryName("linker");
         LibVulpesItems.itemBattery = new ItemIngredient(2).setUnlocalizedName("libvulpes:battery").setCreativeTab(tabMultiblock).setRegistryName("battery");
         LibVulpesItems.itemHoloProjector = new ItemProjector().setUnlocalizedName("holoProjector").setCreativeTab(tabMultiblock).setRegistryName("holoProjector");
-        
-        
     }
 
     @SubscribeEvent(priority=EventPriority.HIGH)
@@ -172,14 +168,10 @@ public class LibVulpes {
     
 
     @EventHandler
-    public void registerRecipes(FMLInitializationEvent evt)
-    {
+    public void registerRecipes(FMLInitializationEvent evt) {
         List<net.minecraft.item.crafting.IRecipe> toRegister = Lists.newArrayList();
    
-//
-      
-//      
-//      //Plugs
+		 //Plugs
         if(Loader.isModLoaded("ic2")) {
           toRegister.add(new ShapelessOreRecipe(null, new ItemStack(LibVulpesBlocks.blockIC2Plug), LibVulpesBlocks.blockStructureBlock, 
                   IC2Items.getItem("te","mv_transformer"), LibVulpesItems.itemBattery).setRegistryName(new ResourceLocation("libvulpes", "blockIC2Plug")));
@@ -194,8 +186,8 @@ public class LibVulpes {
             GameData.register_impl(recipe);
         }
         
-//      //GameRegistry.addShapelessRecipe(new ItemStack(LibVulpesBlocks.blockRFBattery), new ItemStack(LibVulpesBlocks.blockRFOutput));
-//      //GameRegistry.addShapelessRecipe(new ItemStack(LibVulpesBlocks.blockRFOutput), new ItemStack(LibVulpesBlocks.blockRFBattery));
+		//GameRegistry.addShapelessRecipe(new ItemStack(LibVulpesBlocks.blockRFBattery), new ItemStack(LibVulpesBlocks.blockRFOutput));
+		//GameRegistry.addShapelessRecipe(new ItemStack(LibVulpesBlocks.blockRFOutput), new ItemStack(LibVulpesBlocks.blockRFBattery));
     }
 	
 	@SubscribeEvent(priority=EventPriority.HIGH)
@@ -252,7 +244,6 @@ public class LibVulpes {
             GameRegistry.registerTileEntity(TilePlugInputGregTech.class, "ARGTPlug");
         }
 
-
         if(FMLCommonHandler.instance().getSide().isClient()) {
             //Register Block models
             Item blockItem = Item.getItemFromBlock(LibVulpesBlocks.blockHatch);
@@ -261,7 +252,6 @@ public class LibVulpes {
             ModelLoader.setCustomModelResourceLocation(blockItem, 2, new ModelResourceLocation("libvulpes:fluidInputHatch", "inventory"));
             ModelLoader.setCustomModelResourceLocation(blockItem, 3, new ModelResourceLocation("libvulpes:fluidOutputHatch", "inventory"));
         }
-        
         materialRegistry.registerOres(tabLibVulpesOres);
         
         //Ore dict stuff
@@ -299,7 +289,6 @@ public class LibVulpes {
 
 		TeslaCapabilityProvider.registerCap();
 
-
         /*DUST,
         INGOT,
         GEM,
@@ -330,7 +319,6 @@ public class LibVulpes {
         AllowedProducts.registerProduct("GEAR");
 
         //Register Ores
-
         materialRegistry.registerMaterial(new zmaster587.libVulpes.api.material.Material("Dilithium", "pickaxe", 3, 0xddcecb, AllowedProducts.getProductByName("DUST").getFlagValue() | AllowedProducts.getProductByName("GEM").getFlagValue()));
         materialRegistry.registerMaterial(new zmaster587.libVulpes.api.material.Material("Iron", "pickaxe", 1, 0xafafaf, AllowedProducts.getProductByName("SHEET").getFlagValue() | AllowedProducts.getProductByName("STICK").getFlagValue() | AllowedProducts.getProductByName("DUST").getFlagValue() | AllowedProducts.getProductByName("PLATE").getFlagValue(), false));
         materialRegistry.registerMaterial(new zmaster587.libVulpes.api.material.Material("Gold", "pickaxe", 1, 0xffff5d, AllowedProducts.getProductByName("DUST").getFlagValue() | AllowedProducts.getProductByName("COIL").getFlagValue() | AllowedProducts.getProductByName("PLATE").getFlagValue(), false));
@@ -343,7 +331,6 @@ public class LibVulpes {
         materialRegistry.registerMaterial(new zmaster587.libVulpes.api.material.Material("Aluminum", "pickaxe", 1, 0xb3e4dc, AllowedProducts.getProductByName("COIL").getFlagValue() | AllowedProducts.getProductByName("BLOCK").getFlagValue() | AllowedProducts.getProductByName("INGOT").getFlagValue() | AllowedProducts.getProductByName("PLATE").getFlagValue() | AllowedProducts.getProductByName("SHEET").getFlagValue() | AllowedProducts.getProductByName("DUST").getFlagValue() | AllowedProducts.getProductByName("NUGGET").getFlagValue() | AllowedProducts.getProductByName("SHEET").getFlagValue()));
         materialRegistry.registerMaterial(new zmaster587.libVulpes.api.material.Material("Iridium", "pickaxe", 2, 0xdedcce, AllowedProducts.getProductByName("COIL").getFlagValue() | AllowedProducts.getProductByName("BLOCK").getFlagValue() | AllowedProducts.getProductByName("DUST").getFlagValue() | AllowedProducts.getProductByName("INGOT").getFlagValue() | AllowedProducts.getProductByName("NUGGET").getFlagValue() | AllowedProducts.getProductByName("PLATE").getFlagValue() | AllowedProducts.getProductByName("STICK").getFlagValue()));
 
-		//
 		PacketHandler.INSTANCE.addDiscriminator(PacketMachine.class);
 		PacketHandler.INSTANCE.addDiscriminator(PacketEntity.class);
 		PacketHandler.INSTANCE.addDiscriminator(PacketChangeKeyState.class);
@@ -355,7 +342,6 @@ public class LibVulpes {
 		PacketHandler.init();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		proxy.registerEventHandlers();
-
 
 		if(Loader.isModLoaded("immersiveengineering")) {
 			ModCompatDictionary.registerIECoils();
@@ -411,7 +397,6 @@ public class LibVulpes {
 
 		//User Recipes
 
-
 	}
 
 	public void loadXMLRecipe(Class clazz) {
@@ -422,15 +407,11 @@ public class LibVulpes {
 				BufferedReader inputStream = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/assets/libvulpes/defaultrecipe.xml")));
 
 				BufferedWriter stream2 = new BufferedWriter(new FileWriter(file));
-
-
 				while(inputStream.ready()) {
 					stream2.write(inputStream.readLine() + "\n");
 				}
 
-
 				//Write recipes
-
 				stream2.write("<Recipes useDefault=\"true\">\n");
 				for(IRecipe recipe : RecipesMachine.getInstance().getRecipes(clazz)) {
 					boolean writeable = true;
@@ -440,19 +421,14 @@ public class LibVulpes {
 							break;
 						}
 					}
-
 					if(((RecipesMachine.Recipe)recipe).outputToOnlyEmptySlots())
 						writeable = false;
-
 					if(writeable)
 						stream2.write(XMLRecipeLoader.writeRecipe(recipe) + "\n");
 				}
 				stream2.write("</Recipes>");
 				stream2.close();
-
 				inputStream.close();
-
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -465,7 +441,6 @@ public class LibVulpes {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 	@SubscribeEvent
@@ -473,4 +448,3 @@ public class LibVulpes {
 		time++;
 	}
 }
-
