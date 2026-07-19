@@ -1,6 +1,6 @@
 0.5.6
   - Updated chinese (thanks ZY)
-  - 
+  - Fix duplication issue when using Random Things Magnetic enchant 
 
 0.5.5
   - Holo-Projector: 

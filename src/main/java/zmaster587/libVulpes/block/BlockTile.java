@@ -103,12 +103,11 @@ public class BlockTile extends RotatableBlock {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-	
+
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state)
 	{
 		TileEntity tile = world.getTileEntity(pos);
-
 		//This code could use some optimization -Dark
 		if (!world.isRemote && tile instanceof IInventory)
 		{
@@ -123,7 +122,7 @@ public class BlockTile extends RotatableBlock {
 					float f1 = world.rand.nextFloat() * 0.8F + 0.1F;
 					EntityItem entityitem;
 
-					for (float f2 = world.rand.nextFloat() * 0.8F + 0.1F; itemstack.getCount() > 0; world.spawnEntity(entityitem))
+					for (float f2 = world.rand.nextFloat() * 0.8F + 0.1F; itemstack.getCount() > 0;)
 					{
 						int j1 = world.rand.nextInt(21) + 10;
 
@@ -149,9 +148,7 @@ public class BlockTile extends RotatableBlock {
 					}
 				}
 			}
-
 		}
-
 		super.breakBlock(world, pos, state);
 	}
 }
