@@ -13,10 +13,6 @@ repositories {
         name 'BlameJared'
         url 'https://maven.blamejared.com/'
     }
-    maven {
-        name 'McModDev'
-        url 'https://maven.mcmoddev.com/'
-    }
     // Other repositories described by default:
     // CleanroomMC: https://maven.cleanroommc.com
     exclusiveContent {
@@ -91,7 +87,9 @@ dependencies {
     runtimeOnly rfg.deobf("mcjty.theoneprobe:TheOneProbe-1.12:1.12-1.4.28-17")
 
     compileOnly "net.darkhax.tesla:Tesla-1.12.2:1.0.63"
-    compileOnly "blusunrize:ImmersiveEngineering:0.12-92-+"
+    compileOnly(rfg.deobf("curse.maven:immersive-engineering-231951:2799143")) {
+        transitive = false
+    }
 
     compileOnly rfg.deobf("curse.maven:industrial-craft-242638:2746892")
     compileOnly rfg.deobf("curse.maven:gregtechce-293327:2781826")
