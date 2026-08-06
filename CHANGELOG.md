@@ -1,5 +1,7 @@
 0.5.7
-- .
+- Fixed MODULARFULLSCREEN using raw framebuffer dimensions instead of
+  Minecraft scaled GUI dimensions. This corrects GUI scaling for fullscreen view
+- Use with AR 2.2.12 for correct fullscreen map behavior
 
 0.5.6
   - Updated chinese (thanks ZY)
