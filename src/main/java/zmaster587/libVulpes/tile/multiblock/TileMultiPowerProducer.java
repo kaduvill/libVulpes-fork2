@@ -132,6 +132,7 @@ public class TileMultiPowerProducer extends TileMultiBlock implements IToggleBut
 	protected void integrateTile(TileEntity tile) {
 		super.integrateTile(tile);
 
+		if (!(tile instanceof IUniversalEnergy)) {return;}
 		for(BlockMeta block : TileMultiBlock.getMapping('p')) {
 			if(block.getBlock() == world.getBlockState(tile.getPos()).getBlock())
 				batteries.addBattery((IUniversalEnergy) tile);

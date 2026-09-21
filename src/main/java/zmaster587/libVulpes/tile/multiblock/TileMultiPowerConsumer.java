@@ -302,6 +302,7 @@ public class TileMultiPowerConsumer extends TileMultiBlock implements INetworkMa
 	protected void integrateTile(TileEntity tile) {
 		super.integrateTile(tile);
 
+		if (!(tile instanceof IUniversalEnergy)) {return;}
 		for(BlockMeta block : TileMultiBlock.getMapping('P')) {
 			if(block.getBlock() == world.getBlockState(tile.getPos()).getBlock())
 				batteries.addBattery((IUniversalEnergy) tile);
