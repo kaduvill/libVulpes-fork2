@@ -173,17 +173,17 @@ public class ModuleLiquidIndicator extends ModuleBase {
 
         if (relativeX > 0 && relativeX < xSize && relativeY > 0 && relativeY < ySize) {
             List<String> list = new LinkedList<>();
-            FluidStack fluidStack = tile.getTankProperties()[0].getContents();
+            IFluidTankProperties tankProperties = tile.getTankProperties()[0];
+            FluidStack fluidStack = tankProperties.getContents();
 
             if (fluidStack != null) {
-                list.add(fluidStack.getLocalizedName() + ": " + fluidStack.amount + " / " + tile.getTankProperties()[0].getCapacity() + " mB");
+                list.add(fluidStack.getLocalizedName() + ": " + fluidStack.amount + " / " + tankProperties.getCapacity() + " mB");
             } else {
-                list.add(I18n.format("msg.libvulpes.liquid.empty"));
+                list.add(I18n.format("msg.libvulpes.liquid.empty") + ": 0 / " + tankProperties.getCapacity() + " mB");
             }
 
             this.drawTooltip(gui, list, mouseX, mouseY, zLevel, font);
         }
-
     }
 
     @Override

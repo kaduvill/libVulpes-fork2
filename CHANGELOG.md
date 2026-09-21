@@ -1,3 +1,7 @@
+0.5.10
+
+- Integrated tank tooltips no shows Capacity also when empty
+
 0.5.9
 - fixed `B:DefaultMultiblockMachineEnabled=true` applies to all multiblocks
 
