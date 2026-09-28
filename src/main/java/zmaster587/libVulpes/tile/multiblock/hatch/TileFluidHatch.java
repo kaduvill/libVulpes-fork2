@@ -110,7 +110,7 @@ public class TileFluidHatch extends TilePointer implements IFluidHandlerInternal
 	
 	@Override
 	public FluidStack drain(FluidStack resource, boolean doDrain) {
-
+		if (resource == null) {return null;} // AE2UEL 0.57.0
 		if(resource.isFluidEqual(fluidTank.getFluid())) {
 			FluidStack fluidStack = fluidTank.drain(resource.amount, doDrain);
 			while(useBucket(0, getStackInSlot(0)));

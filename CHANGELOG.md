@@ -1,6 +1,7 @@
 0.5.10
 - Fixed rare crash during multiblock formation while registering power plugs
-- Integrated tank tooltips no shows Capacity also when empty_
+- Integrated tank tooltips no shows Capacity also when empty
+- Fixed crash when mods passed a null fluid stack to fluid hatch drain requests
 
 0.5.9
 - fixed `B:DefaultMultiblockMachineEnabled=true` applies to all multiblocks
