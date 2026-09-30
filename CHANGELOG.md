@@ -1,3 +1,6 @@
+0.5.11
+- a
+
 0.5.10
 - Fixed rare crash during multiblock formation while registering power plugs
 - Integrated tank tooltips now shows Capacity also when empty
